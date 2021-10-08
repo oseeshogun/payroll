@@ -1,0 +1,49 @@
+.login{
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.login .section {
+    width: 50%;
+    height: 100%;
+}
+
+.login .section:nth-child(1) .icon-app {
+    padding-left: 10%;
+    padding-top: 30px;
+}
+
+.login .section:nth-child(1) .form-login {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 25%;
+}
+
+.login .section:nth-child(2){
+    background: #2650BB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login .section:nth-child(2) img {
+    width: 80%;
+}
+
+@media screen and (max-width: 992px) {
+    .login .section {
+        width: 100%;
+        height: 100%;
+    }
+
+    .login .section:nth-child(2) {
+        display: none;
+    }
+
+    .login .section:nth-child(1) .form-login {
+        padding: 0 5%;
+    }
+}
