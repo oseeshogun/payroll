@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Login from './components/Login/Login';
 import DashBoard from './components/DashBoard/DashBoard';
+import ListEmployees from './components/ListEmployees/ListEmployees';
 
 function App() {
 
@@ -10,8 +11,8 @@ function App() {
 
   return (
     <Router>
-      <Route path="/" component={!logged ? Login : DashBoard} />
-      <Route path="/dashboard" component={DashBoard} />
+      <Route path="/" exact component={!logged ? Login : DashBoard} />
+      <Route path="/lists" exact component={!logged ? Login : ListEmployees} />
     </Router>
   );
 }

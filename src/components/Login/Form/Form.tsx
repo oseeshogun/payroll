@@ -24,7 +24,7 @@ function Form() {
     if (username === "admin" && password === "ds8&ds9Y2@9"){
       localStorage.setItem("logged", "true");
       localStorage.setItem("username", username);
-      history.replace("/dashboard");
+      window.location.reload();
     }
   }
 

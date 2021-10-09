@@ -17,6 +17,7 @@ import { KeyboardArrowDown, Notifications } from "@mui/icons-material";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DatePicker from "@mui/lab/DatePicker";
+import { useHistory } from "react-router-dom";
 
 const modalStyle = {
   position: "absolute" as "absolute",
@@ -30,7 +31,11 @@ const modalStyle = {
   p: 4,
 };
 
-function DashBoardNavBar() {
+interface Props {
+  onUpdate: () => void
+}
+
+function DashBoardNavBar(args: Props) {
   const [openModal, setOpenModal] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -53,6 +58,8 @@ function DashBoardNavBar() {
   const [poste, setPoste] = useState<string>("");
   const [classsification, setClassification] = useState<string>("");
   const [birthday, setBirthday] = useState<Date | null>(null);
+
+  const history = useHistory();
 
   const onSaveEmploye = () => {
     setAlert("");
@@ -86,6 +93,7 @@ function DashBoardNavBar() {
         ])
       );
       setOpenModal(false);
+      args.onUpdate();
     }
   };
 
@@ -99,7 +107,9 @@ function DashBoardNavBar() {
           aria-haspopup="true"
           aria-expanded={open ? "true" : undefined}
           variant="outlined"
-          onClick={() => {}}
+          onClick={() => {
+            history.push("/");
+          }}
         >
           Mon entreprise
         </Button>
@@ -124,7 +134,10 @@ function DashBoardNavBar() {
           }}
         >
           <MenuItem onClick={handleAddClose}>Ajouter</MenuItem>
-          <MenuItem onClick={handleClose}>Liste</MenuItem>
+          <MenuItem onClick={() => {
+            history.push("/lists");
+            handleClose();
+          }}>Liste</MenuItem>
         </Menu>
 
         <Notifications />
