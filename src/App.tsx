@@ -1,20 +1,24 @@
-import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import './App.css';
-import Login from './components/Login/Login';
-import DashBoard from './components/DashBoard/DashBoard';
-import ListEmployees from './components/ListEmployees/ListEmployees';
+import 'react-perfect-scrollbar/dist/css/styles.css';
+import { useRoutes } from 'react-router-dom';
+import { ThemeProvider, StyledEngineProvider } from '@material-ui/core';
+import GlobalStyles from './components/GlobalStyles';
+import theme from './theme';
+import routes from './routes';
 
-function App() {
+const App = () => {
 
-  const logged = localStorage.getItem("logged") ?? false;
+  const logged = localStorage.getItem('logged') || false;
+
+  const content = useRoutes(routes(!!logged));
 
   return (
-    <Router>
-      <Route path="/" exact component={!logged ? Login : DashBoard} />
-      <Route path="/lists" exact component={!logged ? Login : ListEmployees} />
-    </Router>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        {content}
+      </ThemeProvider>
+    </StyledEngineProvider>
   );
-}
+};
 
 export default App;
