@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { styled } from '@material-ui/core/styles';
 import DashboardNavbar from './DashboardNavbar';
@@ -39,15 +39,21 @@ const DashboardLayoutContent = styled('div')({
 });
 
 const DashboardLayout = () => {
-  const [isMobileNavOpen, setMobileNavOpen] = useState(false);
+  const [isMobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    setMobileNavOpen(isMobileNavOpen);
+  }, [isMobileNavOpen]);
 
   return (
     <DashboardLayoutRoot>
-      <DashboardNavbar onMobileNavOpen={() => setMobileNavOpen(true)} />
+      <DashboardNavbar onMobileNavOpen={() => {
+        setMobileNavOpen(true);
+      }} />
       <DashboardSidebar
         onMobileClose={() => setMobileNavOpen(false)}
         openMobile={isMobileNavOpen}
-      />
+        />
       <DashboardLayoutWrapper>
         <DashboardLayoutContainer>
           <DashboardLayoutContent>

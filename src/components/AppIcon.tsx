@@ -1,10 +1,10 @@
 import React from "react";
-import icon from "../../assets/images/icons8-signet.png";
+import icon from "../assets/images/icons8-bookmark-30.png";
 
 function AppIcon() {
   return (
-    <div style={{ display: "flex" }}>
-      <h2>
+    <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+      <h2 style={{ color: 'white'}}>
         {" "}
         <img
           src={icon}

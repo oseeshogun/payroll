@@ -28,7 +28,7 @@ const routes = (isLoggedIn:boolean) => [
     path: '/',
     element: <MainLayout />,
     children: [
-      { path: 'login', element: <Login /> },
+      { path: 'login', element: isLoggedIn ? <Navigate to="/app/dashboard" /> : <Login /> },
     //   { path: 'register', element: <Register /> },
       { path: '404', element: <NotFound /> },
       { path: '/', element: <Navigate to="/app/dashboard" /> },

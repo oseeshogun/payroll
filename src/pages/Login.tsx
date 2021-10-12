@@ -12,7 +12,7 @@ import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import bgImage from "../../assets/images/christina-wocintechchat-com-faEfWCdOKIg-unsplash.jpg";
+import bgImage from "../assets/images/christina-wocintechchat-com-faEfWCdOKIg-unsplash.jpg";
 
 function Copyright(props: any) {
   return (

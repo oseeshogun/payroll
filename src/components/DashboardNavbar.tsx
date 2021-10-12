@@ -12,7 +12,7 @@ import {
 import MenuIcon from "@material-ui/icons/Menu";
 import NotificationsIcon from "@material-ui/icons/NotificationsOutlined";
 import InputIcon from "@material-ui/icons/Input";
-import Logo from "./Logo";
+import AppIcon from "./AppIcon";
 
 const DashboardNavbar = ({
   onMobileNavOpen,
@@ -26,10 +26,11 @@ const DashboardNavbar = ({
     <AppBar elevation={0} {...rest}>
       <Toolbar>
         <RouterLink to="/">
-          <Logo />
+          <AppIcon />
         </RouterLink>
         <Box sx={{ flexGrow: 1 }} />
-        <Hidden xlDown>
+        <Hidden mdDown>
+
           <IconButton color="inherit" size="large">
             <Badge
               badgeContent={notifications.length}
@@ -39,7 +40,14 @@ const DashboardNavbar = ({
               <NotificationsIcon />
             </Badge>
           </IconButton>
-          <IconButton color="inherit" size="large">
+          <IconButton
+            color="inherit"
+            size="large"
+            onClick={() => {
+              localStorage.removeItem("logged");
+              window.location.reload();
+            }}
+          >
             <InputIcon />
           </IconButton>
         </Hidden>
