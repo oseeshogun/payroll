@@ -35,7 +35,7 @@ const items = [
   {
     href: "/app/employees",
     icon: UsersIcon,
-    title: "Employées",
+    title: "Employés",
   },
   {
     href: "/app/documents",
@@ -51,12 +51,7 @@ const items = [
     href: "/app/settings",
     icon: SettingsIcon,
     title: "Settings",
-  },
-  {
-    href: "/login",
-    icon: LockIcon,
-    title: "Se déconnecter",
-  },
+  }
 ];
 
 const DashboardSidebar = ({
